@@ -9,7 +9,20 @@ class Program
         int columns = int.Parse(Console.ReadLine());
         Console.WriteLine("How many rows would you like in your grid?");
         int rows = int.Parse(Console.ReadLine());
-        int [,] grid = new int [columns, rows];
+        int filler = 0;
+        int [,] grid = new int [rows, columns];
+
+        for (int i = 0; i < columns; i++)
+        {
+            grid[rows, i] = filler;
+        }
+
+        for (int j = 0; j < rows; j++)
+        {
+            grid[j, columns] = filler;
+        }
         
+       
     }
+    
 }
