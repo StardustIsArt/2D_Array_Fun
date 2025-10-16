@@ -1,4 +1,10 @@
-﻿namespace _2D_Array_Fun;
+﻿using System.Diagnostics;
+using System.Drawing;
+
+namespace _2D_Array_Fun;
+using System;
+using System.Drawing.Icons;
+using Console = Colorful.Console;
 
 class Program
 {
@@ -27,7 +33,7 @@ class Program
         {
             for (int c = 0; c < columns; c++)
             {
-                Console.Write(grid[r,c] + "\t");
+                Console.Write(grid[r,c] + "\t", Color.DeepPink);
             }
             Console.WriteLine();
         }
