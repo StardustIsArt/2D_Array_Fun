@@ -22,7 +22,29 @@ class Program
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
             string chessDimensions = Console.ReadLine();
+            string[] fillerOptions = ["triangles", "stars"];
+            Console.WriteLine($"\nWhat would you like to fill the chessboard with? {fillerOptions[0]}, {fillerOptions[1]}.");
+            string chosenFiller = Console.ReadLine();
+            for (int row = 0; row < chessDimensions.Length; row++) {
+                
+                for (int column = 0; column < chessDimensions.Length; column++)
+                {
+                    bool darkSpace = (row + column)  % 2 == 0;
+                    Color bgColor = darkSpace ? Color.CadetBlue : Color.White;
+                    Color fgColor = darkSpace ? Color.White : Color.CadetBlue;
+                    
+                    Console.BackgroundColor = bgColor;
+                    Console.ForegroundColor = fgColor;
+                    
+                    Console.Write($" {chosenFiller}{row}{column}");
+                
+                    Console.ResetColor();
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
         }
+        Console.WriteLine();
 
         if (chosenBoard == boardTypes[1])
         {
