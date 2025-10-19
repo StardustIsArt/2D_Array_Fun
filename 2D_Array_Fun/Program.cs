@@ -18,19 +18,19 @@ class Program
         Console.WriteLine($"Please select which type of grid/board you would like to use: {boardTypes[0]}, {boardTypes[1]}, {boardTypes[2]}.\n");
         string chosenBoard = Console.ReadLine();
 
-        if (chosenBoard == "chessboard")
+        if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
             string chessDimensions = Console.ReadLine();
         }
 
-        if (chosenBoard == "ticTacToe")
+        if (chosenBoard == boardTypes[1])
         {
             Console.WriteLine("\nHow large would you like the tic-tac-toe board?");
             string ticDimensions = Console.ReadLine();
         }
 
-        if (chosenBoard == "creative")
+        if (chosenBoard == boardTypes[2])
         {
             Console.WriteLine("\nHow many columns would you like in your grid?");
             int columns = int.Parse(Console.ReadLine());
