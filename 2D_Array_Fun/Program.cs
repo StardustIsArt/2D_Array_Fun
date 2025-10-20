@@ -43,9 +43,19 @@ class Program
                 for (int column = 0; column < chessDimensions; column++)
                 {
                     bool darkSpace = (row + column)  % 2 == 0;
-                    Color bgColor = darkSpace ? Color.CadetBlue : Color.White;
-                    Color fgColor = darkSpace ? Color.White : Color.CadetBlue;
-                    
+                    Color bgColor;
+                    Color fgColor;
+                    if (darkSpace)
+                    {
+                        bgColor = Color.CadetBlue;
+                        fgColor = Color.White;
+                    }
+                    else
+                    {
+                        bgColor = Color.White;
+                        fgColor = Color.CadetBlue;
+                    }
+                   
                     Console.BackgroundColor = bgColor;
                     Console.ForegroundColor = fgColor;
                     
