@@ -12,22 +12,35 @@ class Program
     {
         
         Console.WriteLine("Hello! Let's make a 2D Grid!");
+        const string CREATIVE_MODE = "creative";
+        const string CHESSBOARD_MODE = "chessboard";
+        const string TIC_MODE = "tic-tac-toe";
         
-        
-        string[] boardTypes = ["chessboard", "tic-tac-toe", "creative"];
+        string[] boardTypes = [CHESSBOARD_MODE, TIC_MODE, CREATIVE_MODE];
         Console.WriteLine($"Please select which type of grid/board you would like to use: {boardTypes[0]}, {boardTypes[1]}, {boardTypes[2]}.\n");
         string chosenBoard = Console.ReadLine();
 
         if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
-            string chessDimensions = Console.ReadLine();
+            int chessDimensions = Convert.ToInt32(Console.ReadLine());
             string[] fillerOptions = ["triangles", "stars"];
             Console.WriteLine($"\nWhat would you like to fill the chessboard with? {fillerOptions[0]}, {fillerOptions[1]}.");
             string chosenFiller = Console.ReadLine();
-            for (int row = 0; row < chessDimensions.Length; row++) {
+            
+            int size = chessDimensions;
+            string[,] chessboard = new string[size, size];
+            for (int row = 0; row < chessDimensions; row++)
+            {
+                for (int col = 0; col < chessDimensions; col++)
+                {
+                    chessboard[row, col] = " ";
+                }
+            }
+            
+            for (int row = 0; row < chessDimensions; row++) {
                 
-                for (int column = 0; column < chessDimensions.Length; column++)
+                for (int column = 0; column < chessDimensions; column++)
                 {
                     bool darkSpace = (row + column)  % 2 == 0;
                     Color bgColor = darkSpace ? Color.CadetBlue : Color.White;
