@@ -72,7 +72,25 @@ class Program
         if (chosenBoard == boardTypes[1])
         {
             Console.WriteLine("\nHow large would you like the tic-tac-toe board?");
-            string ticDimensions = Console.ReadLine();
+            int ticDimensions = Convert.ToInt32(Console.ReadLine());
+            
+            int size = ticDimensions;
+            int[,] ticDimesions = new int[size, size];
+            for (int row = 0; row < ticDimensions; row++)
+            {
+                for (int col = 0; col < ticDimensions; col++)
+                {
+                    ticDimesions[row, col] = ' ';
+                }
+            }
+
+            for (int row = 0; row < ticDimensions; row++)
+            {
+                for (int col = 0; col < ticDimensions; col++)
+                {
+                    Console.Write(new string('-', size * 4 + 4));
+                }
+            }
         }
 
         if (chosenBoard == boardTypes[2])
