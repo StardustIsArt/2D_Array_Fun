@@ -12,14 +12,15 @@ class Program
     {
         
         Console.WriteLine("Hello! Let's make a 2D Grid!");
-        const string CREATIVE_MODE = "creative";
         const string CHESSBOARD_MODE = "chessboard";
         const string TIC_MODE = "tic-tac-toe";
+        const string CREATIVE_MODE = "creative";
         
         string[] boardTypes = [CHESSBOARD_MODE, TIC_MODE, CREATIVE_MODE];
         Console.WriteLine($"Please select which type of grid/board you would like to use: {boardTypes[0]}, {boardTypes[1]}, {boardTypes[2]}.\n");
         string chosenBoard = Console.ReadLine();
-
+        
+        
         if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
@@ -29,12 +30,12 @@ class Program
             string chosenFiller = Console.ReadLine();
             
             int size = chessDimensions;
-            string[,] chessboard = new string[size, size];
+            char[,] chessboard = new char[size, size];
             for (int row = 0; row < chessDimensions; row++)
             {
                 for (int col = 0; col < chessDimensions; col++)
                 {
-                    chessboard[row, col] = " ";
+                    chessboard[row, col] = ' ';
                 }
             }
             
@@ -75,7 +76,7 @@ class Program
             int ticDimensions = Convert.ToInt32(Console.ReadLine());
             
             int size = ticDimensions;
-            int[,] ticDimesions = new int[size, size];
+            char[,] ticDimesions = new char[size, size];
             for (int row = 0; row < ticDimensions; row++)
             {
                 for (int col = 0; col < ticDimensions; col++)
@@ -88,9 +89,13 @@ class Program
             {
                 for (int col = 0; col < ticDimensions; col++)
                 {
-                    Console.Write(new string('-', size * 4 + 4));
+                    Console.Write($"{boardTypes[1]} ");
+                    if (col < 2) Console.Write("|");
                 }
+                Console.WriteLine();
+                if (row < 2 ) Console.Write("---+---+---");
             }
+            Console.WriteLine();
         }
 
         if (chosenBoard == boardTypes[2])
@@ -106,7 +111,7 @@ class Program
             {
                 for (int c = 0; c < columns; c++)
                 {
-                    grid[r, c] = r + c;
+                    grid[r, c] = ' ';
                 }
             }
             Console.WriteLine(grid);
