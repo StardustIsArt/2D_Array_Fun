@@ -25,9 +25,9 @@ class Program
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
             int chessDimensions = Convert.ToInt32(Console.ReadLine());
-            string[] fillerOptions = ["triangles", "stars"];
-            Console.WriteLine($"\nWhat would you like to fill the chessboard with? {fillerOptions[0]}, {fillerOptions[1]}.");
-            string chosenFiller = Console.ReadLine();
+            int[] fillerOptions = [1, 2];
+            Console.WriteLine($"\nWhat would you like to fill the chessboard with? Enter numerical of choice: {fillerOptions[0]} triangles, {fillerOptions[1]} stars.");
+            int chosenFiller = Convert.ToInt32(Console.ReadLine());
             string fillerSymbol;
             
             if (chosenFiller == fillerOptions[0])
@@ -86,24 +86,31 @@ class Program
             int ticDimensions = Convert.ToInt32(Console.ReadLine());
             
             int size = ticDimensions;
-            char[,] ticDimesions = new char[size, size];
-            for (int row = 0; row < ticDimensions; row++)
+            char[,] ticBoard = new char[size, size];
+            for (int row = 0; row < size; row++)
             {
-                for (int col = 0; col < ticDimensions; col++)
+                for (int col = 0; col < size; col++)
                 {
-                    ticDimesions[row, col] = ' ';
+                    ticBoard[row, col] = ' ';
                 }
             }
-
-            for (int row = 0; row < ticDimensions; row++)
+            
+            for (int row = 0; row < size; row++)
             {
-                for (int col = 0; col < ticDimensions; col++)
+                for (int col = 0; col < size; col++)
                 {
-                    Console.Write($"{boardTypes[1]} ");
-                    if (col < 2) Console.Write("|");
+                    Console.Write($"{ticBoard[row, col]} ");
+                    if (col < size) Console.Write("|");
                 }
                 Console.WriteLine();
-                if (row < 2 ) Console.Write("---+---+---");
+                if (row < size) {
+                    for (int i = 0; i < size; i++)
+                    {
+                        Console.Write("---");
+                        if (i < size - 1) Console.Write("+");
+                    }
+                    Console.WriteLine(); 
+                }
             }
             Console.WriteLine();
         }
