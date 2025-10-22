@@ -12,15 +12,15 @@ class Program
     {
         
         Console.WriteLine("Hello! Let's make a 2D Grid!");
-        const string CHESSBOARD_MODE = "chessboard";
-        const string TIC_MODE = "tic-tac-toe";
-        const string CREATIVE_MODE = "creative";
+        const string CHESSBOARD_MODE = "1";
+        const string TIC_MODE = "2";
+        const string CREATIVE_MODE = "3";
         
         string[] boardTypes = [CHESSBOARD_MODE, TIC_MODE, CREATIVE_MODE];
-        Console.WriteLine($"Please select which type of grid/board you would like to use: {boardTypes[0]}, {boardTypes[1]}, {boardTypes[2]}.\n");
+        Console.WriteLine($"Please select the numerical of which type of grid/board you would like to use: {boardTypes[0]} chessboard, {boardTypes[1]} tic-tac-toe, {boardTypes[2]} or creative mode.\n");
         string chosenBoard = Console.ReadLine();
-        
-        
+
+       
         if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
@@ -28,6 +28,16 @@ class Program
             string[] fillerOptions = ["triangles", "stars"];
             Console.WriteLine($"\nWhat would you like to fill the chessboard with? {fillerOptions[0]}, {fillerOptions[1]}.");
             string chosenFiller = Console.ReadLine();
+            string fillerSymbol;
+            
+            if (chosenFiller == fillerOptions[0])
+            {
+                fillerSymbol = "▲";
+            }
+            else
+            {
+                fillerSymbol = "*";
+            }
             
             int size = chessDimensions;
             char[,] chessboard = new char[size, size];
@@ -60,7 +70,7 @@ class Program
                     Console.BackgroundColor = bgColor;
                     Console.ForegroundColor = fgColor;
                     
-                    Console.Write($" {chosenFiller}{row}{column}");
+                    Console.Write($" {fillerSymbol} ");
                 
                     Console.ResetColor();
                 }
