@@ -1,29 +1,20 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-
-namespace _2D_Array_Fun;
+﻿namespace _2D_Array_Fun;
 using System;
 using System.Drawing;
 using Console = Colorful.Console;
-
 class Program
 {
     static void Main(string[] args)
     {
-        
         Console.WriteLine("Hello! Let's make a 2D Grid!");
         const string CHESSBOARD_MODE = "1";
         const string TIC_MODE = "2";
         const string CREATIVE_MODE = "3";
-        
         string[] boardTypes = [CHESSBOARD_MODE, TIC_MODE, CREATIVE_MODE];
         Console.WriteLine($"Please select the numerical of which type of grid/board you would like to use: {boardTypes[0]} chessboard, {boardTypes[1]} tic-tac-toe, {boardTypes[2]} or creative mode.\n");
         string chosenBoard = Console.ReadLine();
-
         char[,] board;
-        
-        
-        
+       
         if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
@@ -41,9 +32,7 @@ class Program
             {
                 fillerSymbol = "*";
             }
-            
-            
-            
+           
             int size = chessDimensions;
             board = new char[size, size];
             for (int row = 0; row < chessDimensions; row++)
@@ -126,7 +115,6 @@ class Program
             int columns = int.Parse(Console.ReadLine());
             Console.WriteLine("How many rows would you like in your grid?");
             int rows = int.Parse(Console.ReadLine());
-            
             int [,] grid = new int [rows, columns];
 
             for (int r = 0; r < rows; r++)
@@ -146,11 +134,5 @@ class Program
                 Console.WriteLine();
             }
         }
-        
-        
-        
-        
-       
     }
-    
 }
