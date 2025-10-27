@@ -20,7 +20,10 @@ class Program
         Console.WriteLine($"Please select the numerical of which type of grid/board you would like to use: {boardTypes[0]} chessboard, {boardTypes[1]} tic-tac-toe, {boardTypes[2]} or creative mode.\n");
         string chosenBoard = Console.ReadLine();
 
-       
+        char[,] board;
+        
+        
+        
         if (chosenBoard == boardTypes[0])
         {
             Console.WriteLine("\nHow many columns and rows would you like on the chessboard?");
@@ -39,13 +42,15 @@ class Program
                 fillerSymbol = "*";
             }
             
+            
+            
             int size = chessDimensions;
-            char[,] chessboard = new char[size, size];
+            board = new char[size, size];
             for (int row = 0; row < chessDimensions; row++)
             {
                 for (int col = 0; col < chessDimensions; col++)
                 {
-                    chessboard[row, col] = ' ';
+                    board[row, col] = ' ';
                 }
             }
             
@@ -84,13 +89,13 @@ class Program
         {
             Console.WriteLine("How large would you like the tic-tac-toe board?");
             int size = Convert.ToInt32(Console.ReadLine());
+            board = new char[size, size];
             
-            char[,] ticBoard = new char[size, size];
             for (int row = 0; row < size; row++)
             {
                 for (int col = 0; col < size; col++)
                 {
-                    ticBoard[row, col] = ' ';
+                    board[row, col] = ' ';
                 }
             }
             
@@ -98,8 +103,8 @@ class Program
             {
                 for (int col = 0; col < size; col++)
                 {
-                    Console.Write($"{ticBoard[row, col]} ");
-                    if (col < size - 1) Console.Write("|");
+                    Console.Write($"{board[row, col]} ");
+                    if (col < size - 1) Console.Write(" |");
                 }
                 Console.WriteLine();
                 if (row < size - 1) 
@@ -141,9 +146,6 @@ class Program
                 Console.WriteLine();
             }
         }
-        
-       // Console.WriteLine("How would you like to fill the values of your grid? ");
-       // string values = (Console.ReadLine());
         
         
         
